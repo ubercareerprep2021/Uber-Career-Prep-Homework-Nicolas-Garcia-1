@@ -15,6 +15,7 @@ Created on Tue Mar 30 22:16:12 2021
 #4   s1: asda, s2: dasa == true
 #5   s1: aaaa, s2: sadx == false
 #6   s1: sadx, s2: aaaa == false
+
 def isStringPermutation (s1: str, s2: str):
     if len(s1) != len(s2):
         return False
@@ -26,13 +27,25 @@ def isStringPermutation (s1: str, s2: str):
         
     return True    
         
-        
-print(isStringPermutation('asdf', 'fsda'))
-print(isStringPermutation('asdf', 'fsa'))
-print(isStringPermutation('asdf', 'fsax'))
-print(isStringPermutation('asda', 'dasa'))
-print(isStringPermutation('aaaa', 'sadx'))             
-print(isStringPermutation('sadx', 'aaaa'))    
 
 #method 2
 
+#test cases: 
+    
+#1   s1: asdf, s2: fsda == true
+#2   s1: asdf, s2: fsa == false
+#3   s1: asdf, s2: fsax == false
+#4   s1: asda, s2: dasa == true
+#5   s1: aaaa, s2: sadx == false
+#6   s1: sadx, s2: aaaa == false
+
+def isStringPermutation2 (s1: str, s2: str):
+    if len(s1) != len(s2):
+        return False
+    
+    for i in s1:
+        s1_counter = s1.count(i)
+        s2_counter = s2.count(i)
+        if s1_counter != s2_counter:
+            return False
+    return True
